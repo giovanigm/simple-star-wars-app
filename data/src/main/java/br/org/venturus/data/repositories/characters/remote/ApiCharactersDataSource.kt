@@ -12,9 +12,7 @@ class ApiCharactersDataSource(
 ): RemoteCharactersDataSource {
 
     override fun getCharacters(): Single<List<CharacterEntity>> =
-            api.getCharacters().map { result ->
-                result.characters.map { dataToEntityMapper.mapFrom(it) }
-            }
+            api.getCharacters().map { result -> result.characters.map { dataToEntityMapper.mapFrom(it) } }
 
 
     override fun getCharacter(characterId: Int): Single<CharacterEntity> =

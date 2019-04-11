@@ -25,5 +25,8 @@ data class CharacterData(
     var birthYear : String = "",
 
     var gender : String = "",
-    var homeworld : String = ""
+    var homeworld : String = "",
+
+    @SerializedName("image_url")
+    var imageUrl: String = ""
 )

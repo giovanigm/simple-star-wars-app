@@ -4,7 +4,7 @@ import br.org.venturus.data.data.CharacterData
 import br.org.venturus.domain.common.Mapper
 import br.org.venturus.domain.characters.CharacterEntity
 
-class CharacterDataEntityMapper: Mapper<CharacterData, CharacterEntity>() {
+class CharacterDataEntityMapper: Mapper<CharacterData, CharacterEntity> {
     override fun mapFrom(from: CharacterData): CharacterEntity {
         return CharacterEntity(
             id = from.id,
@@ -16,7 +16,8 @@ class CharacterDataEntityMapper: Mapper<CharacterData, CharacterEntity>() {
             eyeColor = from.eyeColor,
             birthYear = from.birthYear,
             gender = from.gender,
-            homeworld = from.homeworld
+            homeworld = from.homeworld,
+            imageUrl = from.imageUrl
         )
     }
 }

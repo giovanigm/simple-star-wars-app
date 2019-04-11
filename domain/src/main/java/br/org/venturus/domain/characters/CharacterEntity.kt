@@ -10,5 +10,6 @@ data class CharacterEntity(
     var eyeColor : String? = null,
     var birthYear : String? = null,
     var gender : String? = null,
-    var homeworld : String? = null
+    var homeworld : String? = null,
+    var imageUrl: String? = null
 )

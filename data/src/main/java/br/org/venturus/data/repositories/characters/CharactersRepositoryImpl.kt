@@ -15,7 +15,9 @@ class CharactersRepositoryImpl(
         localCharactersDataSource.getCharactersList().flatMap {
             if (it.isEmpty())
                 remoteCharactersDataSource.getCharacters()
-                    .doOnSuccess { list -> localCharactersDataSource.saveCharactersList(list) }
+                    .doOnSuccess { list ->
+                        localCharactersDataSource.saveCharactersList(list)
+                    }
             else
                 Single.just(it)
         }
