@@ -29,6 +29,7 @@ class CharacterListAdapter(private val onClick: (CharacterEntity) -> Unit?) :
         val binding = holder.binding
 
         binding.character = mCharactersList[position]
+        binding.root.setOnClickListener { onClick(mCharactersList[position]) }
     }
 
     fun setItems(characters: Collection<CharacterEntity>) {

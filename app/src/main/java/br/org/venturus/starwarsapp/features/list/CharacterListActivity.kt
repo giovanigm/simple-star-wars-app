@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.org.venturus.starwarsapp.R
 import br.org.venturus.starwarsapp.databinding.ActivityCharacterListBinding
+import br.org.venturus.starwarsapp.features.detail.CharacterDetailActivity
 
 import kotlinx.android.synthetic.main.activity_character_list.*
 import kotlinx.android.synthetic.main.content_character_list.*
@@ -24,19 +25,17 @@ class CharacterListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_character_list)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_character_list)
 
         setSupportActionBar(toolbar)
 
-
         binding.lifecycleOwner = this
 
         binding.viewModel = mViewModel
 
-        adapter = CharacterListAdapter { personId ->
-
+        adapter = CharacterListAdapter { character ->
+            CharacterDetailActivity.startActivity(this, character.id)
         }
 
         characters_recycler_view.adapter = adapter
